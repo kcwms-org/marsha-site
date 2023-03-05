@@ -1,0 +1,7 @@
+<h2>{{getStartedText}}</h2>
+<section>
+    <h3>cards to test with</h3>
+    <div *ngFor="let card of testCards">
+        <span>{{card.cardNumber}}</span> &nbsp;: &nbsp;<em> {{card.cardType}} </em>
+    </div>
+</section>
