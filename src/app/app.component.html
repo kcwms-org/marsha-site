@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+
+  <span>{{appName}}</span>
+  <span class="toolbar-spacer"></span>
+  
+  <button routerLink="/home" mat-icon-button class="toolbar-icon" aria-label="Example icon-button with home icon">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-toolbar>
+
+<p>
+  <mat-sidenav-container>
+    <mat-sidenav position="start" [mode]="'side'" [(opened)]="sideNaveOpened">
+      <kvcdr-property-preview></kvcdr-property-preview>
+    </mat-sidenav>
+
+    <mat-sidenav-content color="accent">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</p>

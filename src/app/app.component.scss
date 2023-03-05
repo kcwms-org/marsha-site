@@ -1,0 +1,15 @@
+mat-sidenav-container {
+    height: calc(205vh - 115vh);
+}
+
+mat-sidenav{
+    width: 200px;
+    background-color: accent;
+}
+
+.toolbar-spacer{
+    flex: 1 1 auto;
+}
+.toolbar-icon{
+    padding: 0 14px;
+}
