@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrlWithTrailingSlash: ''
+    apiUrlWithTrailingSlash: 'https://stripe-api-nav78.ondigitalocean.app/'
 };

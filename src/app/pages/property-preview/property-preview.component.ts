@@ -26,6 +26,7 @@ export class PropertyPreviewComponent {
       "productId": this.productId,
       "quantity": this.quantity
     }
+    console.info(payload);
     this.http.post<{ url: string }>(`${environment.apiUrlWithTrailingSlash}${this.stripeEndpoint}`, payload).subscribe(
       {
         next: (r) => {
