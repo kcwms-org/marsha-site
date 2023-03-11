@@ -21,8 +21,8 @@ export class PropertyPreviewComponent {
     debugger;
     const payload = {
       "domain": this.domain,
-      "successRoute": '/striperesults/success',
-      "failRoute": "/striperesults/fail",
+      "successRoute": '/striperesult/success',
+      "failRoute": "/striperesult/fail",
       "productId": this.productId,
       "quantity": this.quantity
     }
