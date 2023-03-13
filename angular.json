@@ -75,7 +75,8 @@
               "browserTarget": "marsha-site:build:production"
             },
             "development": {
-              "browserTarget": "marsha-site:build:development"
+              "browserTarget": "marsha-site:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
