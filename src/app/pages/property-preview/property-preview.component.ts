@@ -11,7 +11,7 @@ import { ProductList, Product, Metadata } from "../../models/stripe-product";
 export class PropertyPreviewComponent implements OnInit {
 
   private stripeEndpoint = 'create-checkout-session';
-  private stripeGetProductsEndpoint = 'product';
+  private stripeGetProductsEndpoint = 'products';
 
   domain: string = window.location.origin;
 
@@ -32,7 +32,7 @@ export class PropertyPreviewComponent implements OnInit {
               this.productList = r;
             }
           },
-          error: (err) => console.error('/product', err)
+          error: (err) => console.error('/products', err)
         }
       );
   }
