@@ -1,12 +1,12 @@
-
-<section class="preview-section">
+<section *ngFor="let p of productList.data" class="preview-section">
     <div class="product">
-        <img class="preview" src="../../assets/ugly_house.jpeg" alt="A house to rent" />
+        <img class="preview" [src]="p.images[0]" [alt]="p.description" />
         <div class="description">
-            <h3>Rental Property #1</h3>
-            <h5>$100.00/day</h5>
+            <h3>{{p.description}}</h3>
+            <h5>{{p.default_price.unit_amount}} / {{p.unit_label}}</h5>
         </div>
     </div>
-    <div><button type="submit" (click)="onSubmit()">checkout</button></div>
+    <div><button type="submit" (click)="onSubmit(p.default_price.id, p.default_price.type)">checkout</button>
+    </div>
 </section>
 <hr>
