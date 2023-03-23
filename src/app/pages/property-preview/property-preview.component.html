@@ -1,12 +1,21 @@
-<section *ngFor="let p of productList.data" class="preview-section">
+<section *ngFor="let p of productList" class="preview-section">
     <div class="product">
-        <img class="preview" [src]="p.images[0]" [alt]="p.description" />
+        <img class="preview" [src]="p.imageUrls[0]" [alt]="p.description" />
+        <div>{{p.description}}</div>
+        <hr>
+        <div>
+            <label [for]="'chkHasTestimonials'+p.productId">Has Testimonials</label> <input type="checkbox" [id]="'chkHasTestimonials'+p.productId" [checked]="p.metadata['hasTestimonials']==='true'">
+        </div>
+        <div>
+            <label [for]="'chkhasVirtualTour'+p.productId">Has Virtual Tour</label> <input type="checkbox" [id]="'chkhasVirtualTour'+p.productId" [checked]="p.metadata['hasVirtualTour']==='true'">
+        </div>
+        <hr>
         <div class="description">
-            <h3>{{p.description}}</h3>
-            <h5>{{p.default_price.unit_amount}} / {{p.unit_label}}</h5>
+            <h3>{{p.productName}}</h3>
+            <h5>${{p.pricePerUnit}} / {{p.unitDescr}}</h5>
         </div>
     </div>
-    <div><button type="submit" (click)="onSubmit(p.default_price.id, p.default_price.type)">checkout</button>
+    <div><button type="submit" (click)="onSubmit(p.priceId, p.type)">checkout</button>
     </div>
 </section>
 <hr>

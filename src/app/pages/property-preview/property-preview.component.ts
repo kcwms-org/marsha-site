@@ -1,30 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from "../../../environments/environment";
-import { ProductList, Product, Metadata } from "../../models/stripe-product";
-
+import { Product } from "kvcdr-stripe-view-models";
 @Component({
   selector: 'kvcdr-property-preview',
   templateUrl: './property-preview.component.html',
   styleUrls: ['./property-preview.component.scss']
 })
 export class PropertyPreviewComponent implements OnInit {
-
+  
   private stripeEndpoint = 'create-checkout-session';
   private stripeGetProductsEndpoint = 'products';
 
   domain: string = window.location.origin;
 
-  productList: ProductList = new ProductList();
+  productList: Product[] = [];
 
   productId: string = 'price_1MfVQ8AXcHqp4mKL5ELPmfSK';
   quantity: number = 1;
 
   constructor(private http: HttpClient) { }
 
-  
+
   ngOnInit() {
-    this.http.get<any>(`${environment.apiUrlWithTrailingSlash}${this.stripeGetProductsEndpoint}?active=true`, { withCredentials: true })
+    this.http.get<Product[]>(`${environment.apiUrlWithTrailingSlash}${this.stripeGetProductsEndpoint}?active=true`, { withCredentials: true })
       .subscribe(
         {
           next: (r) => {
@@ -37,7 +36,7 @@ export class PropertyPreviewComponent implements OnInit {
       );
   }
 
-  onSubmit(price_id:string, type: string) {
+  onSubmit(price_id: string, type: string) {
     debugger;
     const payload = {
       "domain": this.domain,
